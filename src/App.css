@@ -3,7 +3,7 @@
 }
 
 .container {
-  max-width: 1100px;
+  background: aquamarine;
   margin: auto;
   overflow: hidden;
   padding: 0 2rem;
