@@ -6,164 +6,165 @@ import { Button, Box, TextField, MenuItem } from '@mui/material';
 function SignUp() {
     const states = [
         {
-            value: 'Alabama',
+            value: 'AL',
             label: 'AL'
         },
         {
-            value: 'Alaska',
+            value: 'AK',
             label: 'AK'
         }, {
-            value: 'Arizona',
+            value: 'AZ',
             label: 'AZ'
         }, {
-            value: 'Arkansas',
+            value: 'AR',
             label: 'AR'
         }, {
-            value: 'California',
+            value: 'CA',
             label: 'CA'
         }, {
-            value: 'Colorado',
+            value: 'CO',
             label: 'CO'
         }, {
-            value: 'Connecticut',
+            value: 'CT',
             label: 'CT'
         }, {
-            value: 'Delaware',
+            value: 'DE',
             label: 'DE'
         }, {
-            value: 'Florida',
+            value: 'FL',
             label: 'FL'
         }, {
-            value: 'Georgia',
+            value: 'GA',
             label: 'GA'
         }, {
-            value: 'Hawaii',
+            value: 'HI',
             label: 'HI'
         }, {
-            value: 'Idaho',
+            value: 'ID',
             label: 'ID'
         }, {
-            value: 'Illinois',
+            value: 'IL',
             label: 'IL'
         }, {
-            value: 'Indiana',
+            value: 'IN',
             label: 'IN'
         }, {
-            value: 'Iowa',
+            value: 'IA',
             label: 'IA'
         }, {
-            value: 'Kansas',
+            value: 'KS',
             label: 'KS'
         }, {
-            value: 'Kentucky',
+            value: 'KY',
             label: 'KY'
         }, {
-            value: 'Louisiana',
+            value: 'LA',
             label: 'LA'
         }, {
-            value: 'Maine',
+            value: 'ME',
             label: 'ME'
         }, {
-            value: 'Maryland',
+            value: 'MD',
             label: 'MD'
         }, {
-            value: 'Massachusetts',
+            value: 'MA',
             label: 'MA'
         }, {
-            value: 'Michigan',
+            value: 'MI',
             label: 'MI'
         }, {
-            value: 'Minnesota',
+            value: 'MN',
             label: 'MN'
         }, {
-            value: 'Mississippi',
+            value: 'MS',
             label: 'MS'
         }, {
-            value: 'Missouri',
+            value: 'MO',
             label: 'MO'
         }, {
-            value: 'Montana',
+            value: 'MT',
             label: 'MT'
         }, {
-            value: 'Nebraska',
+            value: 'NE',
             label: 'NE'
         }, {
-            value: 'Nevada',
+            value: 'NV',
             label: 'NV'
         }, {
-            value: 'New Hampshire',
+            value: 'NH',
             label: 'NH'
         }, {
-            value: 'New Jersey',
+            value: 'NJ',
             label: 'NJ'
         }, {
-            value: 'New Mexico',
+            value: 'NM',
             label: 'NM'
         }, {
-            value: 'New York',
+            value: 'NY',
             label: 'NY'
         }, {
-            value: 'North Carolina',
+            value: 'NC',
             label: 'NC'
         }, {
-            value: 'North Dakota',
+            value: 'ND',
             label: 'ND'
         }, {
-            value: 'Ohio',
+            value: 'OH',
             label: 'OH'
         }, {
-            value: 'Oklahoma',
+            value: 'OK',
             label: 'OK'
         }, {
-            value: 'Oregon',
+            value: 'OR',
             label: 'OR'
         }, {
-            value: 'Pennsylvania',
+            value: 'PA',
             label: 'PA'
         }, {
-            value: 'Rhode Island',
+            value: 'RI',
             label: 'RI'
         }, {
-            value: 'South Carolina',
+            value: 'SC',
             label: 'SC'
         }, {
-            value: 'South Dakota',
+            value: 'SD',
             label: 'SD'
         }, {
-            value: 'Tennessee',
+            value: 'TN',
             label: 'TN'
         }, {
-            value: 'Texas',
+            value: 'TX',
             label: 'TX'
         }, {
-            value: 'Utah',
+            value: 'UT',
             label: 'UT'
         }, {
-            value: 'Vermont',
+            value: 'VT',
             label: 'VT'
         }, {
-            value: 'Virginia',
+            value: 'VA',
             label: 'VA'
         }, {
-            value: 'Washington',
+            value: 'WA',
             label: 'WA'
         }, {
-            value: 'West Virginia',
+            value: 'WV',
             label: 'WV'
         }, {
-            value: 'Wisconsin',
+            value: 'WI',
             label: 'WI'
         }, {
-            value: 'Wyoming',
+            value: 'WY',
             label: 'WY'
         }
     ]
 
-    const [setStates] = React.useState('EUR');
+    const [state, setState] = React.useState('');
 
     const handleStatesChange = (event) => {
-        setStates(event.target.value);
+        setState(event.target.value);
     };
+
 
     return (
         <Fragment>
@@ -176,6 +177,7 @@ function SignUp() {
                         required
                         id="outlined-required"
                         label="Business Name"
+                        name='businessName'
                         defaultValue=""
                     />
                     <br />
@@ -183,7 +185,8 @@ function SignUp() {
                     <TextField
                         required
                         id="outlined-required"
-                        label="Owner's First Name"
+                        label="Owner First Name"
+
                         defaultValue=""
                     />
                     <TextField
@@ -251,10 +254,11 @@ function SignUp() {
 
 
                         <TextField
+                            required
                             id="outlined-select-state"
                             select
                             label="State"
-                            value={states}
+                            value={state}
                             onChange={handleStatesChange}
                         >
                             {states.map((option) => (
@@ -273,7 +277,7 @@ function SignUp() {
                     defaultValue=""
                 />
                 <br />
-                <Button variant='contained' component='a' href='/setup'>Continue</Button>
+                <Button variant='contained' component='a' href='/setup' >Continue</Button>
 
             </Box>
 
