@@ -159,6 +159,10 @@ function SignUp() {
         }
     ]
 
+    const handleSubmit = () => {
+        console.log('Submitted')
+    }
+
     const [state, setState] = React.useState('');
 
     const handleStatesChange = (event) => {
@@ -277,7 +281,7 @@ function SignUp() {
                     defaultValue=""
                 />
                 <br />
-                <Button variant='contained' component='a' href='/setup' >Continue</Button>
+                <Button variant='contained' component='a' href='/usermanagement' onClick={handleSubmit} >Continue</Button>
 
             </Box>
 
