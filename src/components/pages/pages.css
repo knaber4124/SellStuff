@@ -17,3 +17,12 @@
     height: 400px;
     margin-left: 250px;
 }
+
+.posGrid{
+    background-color: beige;
+}
+.posItemCell{
+    border-right: solid 2px black;
+    border-bottom:solid 2px black;
+}
+

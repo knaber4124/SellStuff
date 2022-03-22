@@ -19,8 +19,10 @@ const theme = createTheme({
 
 
 const Header = () => {
+
     const usersContext = useContext(UsersContext);
-    const { loggedIn, user } = usersContext;
+
+    const { loggedIn, user, logOut } = usersContext;
 
 
     const [anchorEl, setAnchorEl] = useState(null);
@@ -31,6 +33,10 @@ const Header = () => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+    const logOutUser = () => {
+        logOut();
+        console.log('logged out');
+    }
 
 
 
@@ -59,8 +65,8 @@ const Header = () => {
                         <MenuItem className='menuItem' component='a' href='/pointofsale'>Point of Sale</MenuItem>
                         <MenuItem className='menuItem' component='a' href='/reporting'>Sales Reporting</MenuItem>
                         <MenuItem className='menuItem' component='a' href='/inventory'>Inventory Management</MenuItem>
-                        <MenuItem className='menuItem' component='a' href='/usermanagement'>UserManagement</MenuItem>
-
+                        <MenuItem className='menuItem' component='a' href='/usermanagement'>User Management</MenuItem>
+                        <MenuItem className='menuItem' component='a' href='/' onClick={logOutUser}>Log Out</MenuItem>
                     </Menu>
 
                     :
