@@ -17,6 +17,7 @@ import UsersState from './context/users/UsersState';
 
 
 
+
 function App() {
   return (
     <div className="App">
@@ -41,8 +42,8 @@ function App() {
             </div>
           </Fragment>
         </Router>
+        <Footer />
       </UsersState>
-      <Footer />
     </div >
   );
 }

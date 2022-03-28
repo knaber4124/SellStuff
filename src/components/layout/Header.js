@@ -5,7 +5,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import UsersContext from '../../context/users/usersContext';
 
 
-
+// theme for MaterializeUI
 const theme = createTheme({
     palette: {
         neutral: {
@@ -90,4 +90,7 @@ const Header = () => {
     )
 }
 
-export default Header
+
+
+
+export default Header;

@@ -1,4 +1,4 @@
-import React, {  useContext, Fragment } from 'react';
+import React, { useContext, Fragment } from 'react';
 import { Button, Box, TextField } from '@mui/material';
 import UsersContext from '../../context/users/usersContext';
 
@@ -42,6 +42,27 @@ const LogIn = () => {
       </Box>
 
       <Button variant='contained' component='a' href='/usermanagement' onClick={handleSubmit} >Log In</Button>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
 
 
     </Fragment>

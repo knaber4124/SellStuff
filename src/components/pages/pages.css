@@ -25,4 +25,13 @@
     border-right: solid 2px black;
     border-bottom:solid 2px black;
 }
+.inventoryItem{
+    text-align: right;
+}
+.checkoutTotals{
+    text-align: right;
+    color: black;
+}
+
+
 
