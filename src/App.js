@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from '../src/components/layout/Header';
 import Footer from '../src/components/layout/Footer';
 import Home from './components/pages/Home';
@@ -23,7 +23,7 @@ function App() {
     <div className="App">
       <UsersState>
         <Header />
-        <Router>
+        <BrowserRouter>
           <Fragment>
             <div className='container'>
               <Routes>
@@ -37,11 +37,10 @@ function App() {
                 <Route path='/inventory' element={<InventoryManagement />} />
                 <Route path='/ordering' element={<InventoryOrdering />} />
                 <Route path='/usermanagement' element={<UserManagement />} />
-
               </Routes>
             </div>
           </Fragment>
-        </Router>
+        </BrowserRouter>
         <Footer />
       </UsersState>
     </div >

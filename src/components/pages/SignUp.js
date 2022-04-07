@@ -1,4 +1,7 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect, useContext } from 'react'
+import { useNavigate } from 'react-router-dom';
+import UsersContext from '../../context/users/usersContext';
+
 import { Button, Box, TextField, MenuItem } from '@mui/material';
 
 
@@ -168,6 +171,18 @@ function SignUp() {
     const handleStatesChange = (event) => {
         setState(event.target.value);
     };
+    const usersContext = useContext(UsersContext);
+
+    const { loggedIn, user } = usersContext;
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        console.log(loggedIn);
+        if (loggedIn === false) {
+            navigate('/');
+        }
+    }, [loggedIn])
+
 
 
     return (

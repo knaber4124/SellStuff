@@ -8,7 +8,7 @@ import {
 
 const UsersState = props => {
     const initialState = {
-        loggedIn: true,
+        loggedIn: false,
         user: null
     }
 
@@ -28,6 +28,7 @@ const UsersState = props => {
     return (
         <usersContext.Provider
             value={{
+                user: state.user,
                 loggedIn: state.loggedIn,
                 logIn,
                 logOut

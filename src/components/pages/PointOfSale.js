@@ -1,8 +1,23 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect, useContext } from 'react'
+import { useNavigate } from 'react-router-dom';
+
 import { Grid, Button } from '@mui/material';
+import UsersContext from '../../context/users/usersContext';
+
 import './pages.css';
 
 const PointOfSale = () => {
+  const usersContext = useContext(UsersContext);
+
+  const { loggedIn, user } = usersContext;
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log(loggedIn);
+    if (loggedIn === false) {
+      navigate('/');
+    }
+  }, [loggedIn])
   return (
     <Fragment>
       <p1>Point of Sale</p1>

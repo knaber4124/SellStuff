@@ -1,5 +1,6 @@
 import './layout.css';
 import React, { useState, useContext } from 'react';
+import { Navigate } from 'react-router';
 import { Box, Button, Menu, MenuItem } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import UsersContext from '../../context/users/usersContext';
@@ -18,27 +19,31 @@ const theme = createTheme({
 
 
 
-const Header = () => {
+const Header = (props) => {
 
     const usersContext = useContext(UsersContext);
 
-    const { loggedIn, user, logOut } = usersContext;
+    const { loggedIn, user, logOut, logIn } = usersContext;
 
-
+    //Material UI needed to open Menu
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
+        console.log(loggedIn)
+
         setAnchorEl(event.currentTarget);
     };
+
+    // Material UI needed to close Menu
     const handleClose = () => {
         setAnchorEl(null);
     };
-    const logOutUser = () => {
+
+    // Log User out option of Menu
+    const logOutUser = (e) => {
+        e.preventDefault();
         logOut();
-        console.log('logged out');
     }
-
-
 
 
     return (
@@ -66,7 +71,7 @@ const Header = () => {
                         <MenuItem className='menuItem' component='a' href='/reporting'>Sales Reporting</MenuItem>
                         <MenuItem className='menuItem' component='a' href='/inventory'>Inventory Management</MenuItem>
                         <MenuItem className='menuItem' component='a' href='/usermanagement'>User Management</MenuItem>
-                        <MenuItem className='menuItem' component='a' href='/' onClick={logOutUser}>Log Out</MenuItem>
+                        <MenuItem className='menuItem' onClick={logOutUser}>Log Out</MenuItem>
                     </Menu>
 
                     :

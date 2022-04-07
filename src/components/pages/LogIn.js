@@ -1,16 +1,27 @@
-import React, { useContext, Fragment } from 'react';
+import React, { useRef, useEffect, useContext, Fragment } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button, Box, TextField } from '@mui/material';
 import UsersContext from '../../context/users/usersContext';
+import usersContext from '../../context/users/usersContext';
 
 
 
-const LogIn = () => {
+const LogIn = (props) => {
   const usersContext = useContext(UsersContext);
+  let { logIn, loggedIn } = usersContext;
+  const navigate = useNavigate();
 
-  const { logIn } = usersContext;
+  useEffect(() => {
+    console.log(loggedIn);
+    if (loggedIn === true) {
+      navigate('/pointofsale');
+    }
+  }, [loggedIn])
+
 
   const handleSubmit = () => {
-    logIn()
+    logIn();
+    console.log(loggedIn);
   }
 
 
@@ -41,9 +52,8 @@ const LogIn = () => {
 
       </Box>
 
-      <Button variant='contained' component='a' href='/usermanagement' onClick={handleSubmit} >Log In</Button>
+      <Button variant='contained' onClick={handleSubmit} >Log In</Button>
 
-      <br />
       <br />
       <br />
       <br />

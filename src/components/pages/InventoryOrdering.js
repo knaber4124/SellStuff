@@ -1,4 +1,6 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useState, useContext, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
+import UsersContext from '../../context/users/usersContext';
 import { Grid, Button, MenuItem, InputLabel, FormControl, Select } from '@mui/material';
 import './pages.css';
 
@@ -7,6 +9,18 @@ function InventoryOrdering() {
   const handleChange = (event) => {
     setQuantity(event.target.value);
   };
+  const usersContext = useContext(UsersContext);
+
+  const { loggedIn, user } = usersContext;
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log(loggedIn);
+    if (loggedIn === false) {
+      navigate('/');
+    }
+  }, [loggedIn])
+
 
   return (
     <Fragment>
