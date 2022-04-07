@@ -22,8 +22,8 @@ function App() {
   return (
     <div className="App">
       <UsersState>
-        <Header />
         <BrowserRouter>
+          <Header />
           <Fragment>
             <div className='container'>
               <Routes>

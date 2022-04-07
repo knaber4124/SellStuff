@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useContext } from 'react'
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Button, Grid, Input, InputLabel, InputAdornment } from '@mui/material';
 import UsersContext from '../../context/users/usersContext';
 
@@ -7,14 +7,11 @@ import './pages.css'
 
 function Checkout() {
     const usersContext = useContext(UsersContext);
+    const navigate = useNavigate();
+
 
     const { loggedIn, user } = usersContext;
 
-    // useEffect(() => {
-    //     if (loggedIn = 'false') {
-    //         return <Navigate to='/' />
-    //     }
-    // })
 
 
     const [values, setValues] = React.useState({
@@ -23,6 +20,10 @@ function Checkout() {
     const handleChange = (prop) => (event) => {
         setValues({ ...values, [prop]: event.target.value });
     };
+
+    const onSubmit = () => {
+        navigate('/pointofsale')
+    }
     return (
         <Fragment>
             <p1>Checkout</p1>
@@ -49,7 +50,7 @@ function Checkout() {
                 </Grid>
                 <br />
             </Grid>
-            <Button variant='contained' component='a' href='/pointofsale'>Submit Order</Button>
+            <Button variant='contained' onClick={onSubmit}>Submit Order</Button>
         </Fragment>
     )
 }

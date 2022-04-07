@@ -162,9 +162,6 @@ function SignUp() {
         }
     ]
 
-    const handleSubmit = () => {
-        console.log('Submitted')
-    }
 
     const [state, setState] = React.useState('');
 
@@ -173,16 +170,21 @@ function SignUp() {
     };
     const usersContext = useContext(UsersContext);
 
-    const { loggedIn, user } = usersContext;
+    const { loggedIn, user, logIn } = usersContext;
     const navigate = useNavigate();
 
     useEffect(() => {
         console.log(loggedIn);
-        if (loggedIn === false) {
-            navigate('/');
+        if (loggedIn === true) {
+            navigate('/pointofsale');
         }
     }, [loggedIn])
 
+    const handleSubmit = () => {
+        console.log('Submitted')
+        logIn();
+        navigate('/usermanagement')
+    }
 
 
     return (
@@ -296,7 +298,7 @@ function SignUp() {
                     defaultValue=""
                 />
                 <br />
-                <Button variant='contained' component='a' href='/usermanagement' onClick={handleSubmit} >Continue</Button>
+                <Button variant='contained' onClick={handleSubmit} >Continue</Button>
 
             </Box>
 

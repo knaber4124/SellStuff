@@ -1,6 +1,6 @@
 import './layout.css';
 import React, { useState, useContext } from 'react';
-import { Navigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import { Box, Button, Menu, MenuItem } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import UsersContext from '../../context/users/usersContext';
@@ -22,6 +22,8 @@ const theme = createTheme({
 const Header = (props) => {
 
     const usersContext = useContext(UsersContext);
+    const navigate = useNavigate();
+
 
     const { loggedIn, user, logOut, logIn } = usersContext;
 
@@ -43,6 +45,27 @@ const Header = (props) => {
     const logOutUser = (e) => {
         e.preventDefault();
         logOut();
+    }
+    const routeHome = () => {
+        navigate('/')
+    }
+    const routePOS = () => {
+        navigate('/pointofsale')
+    }
+    const routeReporting = () => {
+        navigate('/reporting')
+    }
+    const routeInventory = () => {
+        navigate('/inventory')
+    }
+    const routeUserManagement = () => {
+        navigate('/usermanagement')
+    }
+    const routeSignUp = () => {
+        navigate('/signup')
+    }
+    const routeLogIn = () => {
+        navigate('/login')
     }
 
 
@@ -66,11 +89,11 @@ const Header = (props) => {
                             'aria-labelledby': 'basic-button',
                         }}>
 
-                        <MenuItem className='menuItem' component='a' href='/'>Home</MenuItem>
-                        <MenuItem className='menuItem' component='a' href='/pointofsale'>Point of Sale</MenuItem>
-                        <MenuItem className='menuItem' component='a' href='/reporting'>Sales Reporting</MenuItem>
-                        <MenuItem className='menuItem' component='a' href='/inventory'>Inventory Management</MenuItem>
-                        <MenuItem className='menuItem' component='a' href='/usermanagement'>User Management</MenuItem>
+                        <MenuItem className='menuItem' onClick={routeHome}>Home</MenuItem>
+                        <MenuItem className='menuItem' onClick={routePOS}>Point of Sale</MenuItem>
+                        <MenuItem className='menuItem' onClick={routeReporting}>Sales Reporting</MenuItem>
+                        <MenuItem className='menuItem' onClick={routeInventory}>Inventory Management</MenuItem>
+                        <MenuItem className='menuItem' onClick={routeUserManagement}>User Management</MenuItem>
                         <MenuItem className='menuItem' onClick={logOutUser}>Log Out</MenuItem>
                     </Menu>
 
@@ -83,9 +106,9 @@ const Header = (props) => {
                             'aria-labelledby': 'basic-button',
                         }}>
 
-                        <MenuItem className='menuItem' component='a' href='/'>Home</MenuItem>
-                        <MenuItem className='menuItem' component='a' href='/signup' >Sign Up For A New Account</MenuItem>
-                        <MenuItem className='menuItem' component='a' href='/login'>Log In</MenuItem>
+                        <MenuItem className='menuItem' onClick={routeHome}>Home</MenuItem>
+                        <MenuItem className='menuItem' onClick={routeSignUp} >Sign Up For A New Account</MenuItem>
+                        <MenuItem className='menuItem' onClick={routeLogIn}>Log In</MenuItem>
 
                     </Menu>
                 }

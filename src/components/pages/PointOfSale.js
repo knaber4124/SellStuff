@@ -18,6 +18,10 @@ const PointOfSale = () => {
       navigate('/');
     }
   }, [loggedIn])
+
+  const onSubmit = () => {
+    navigate('/checkout')
+  }
   return (
     <Fragment>
       <p1>Point of Sale</p1>
@@ -54,7 +58,7 @@ const PointOfSale = () => {
         </Grid>
       </Grid>
 
-      <Button variant='contained' component='a' href='/checkout'>Check Out</Button>
+      <Button variant='contained' onClick={onSubmit}>Check Out</Button>
 
     </Fragment>
   )
