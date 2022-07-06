@@ -19,7 +19,7 @@ function Setup() {
 
     return (
         <Fragment>
-            <p1>Setup</p1>
+            <p1>{`${user} please set up your account`}</p1>
             <Button variant='contained' component='a' href='/usermanagement'>Continue</Button>
         </Fragment>
     )

@@ -21,7 +21,8 @@ function SalesReporting() {
     }, [loggedIn])
 
     return (
-        <p1>Sales Reporting</p1>)
+        <p1>{`Welcome to Sales Reporting ${user}`} </p1>
+    )
 }
 
 export default SalesReporting

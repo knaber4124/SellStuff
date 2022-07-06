@@ -22,7 +22,7 @@ function UserManagement() {
       <p1>UserManagement</p1>
       <Grid container spacing={2}>
         <Grid item xs={8}>
-          <p2>Employee 1</p2><Button>Select</Button>
+          <p2>{`${user}`}</p2><Button>Select</Button>
           <br />
           <p2>Employee 2</p2><Button>Select</Button>
         </Grid>

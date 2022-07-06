@@ -9,7 +9,7 @@ import {
 const UsersState = props => {
     const initialState = {
         loggedIn: false,
-        user: null
+        user: "Keith"
     }
 
     const [state, dispatch] = useReducer(usersReducer, initialState);

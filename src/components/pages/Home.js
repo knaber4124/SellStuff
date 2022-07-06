@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import Box from '@mui/material/Box'
 import placeHolder from '../../resources/placeholder.png';
 
+
+
 function Home() {
     return (
         <Fragment>
