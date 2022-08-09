@@ -7,11 +7,13 @@ import './pages.css';
 
 
 
+
+
 async function getItems() {
   try {
-    const res = await Axios.get('http://localhost/api/getItems');
-    console.log('IM pull')
-    console.log(res);
+    Axios.get('http://localhost:4141/api/getItems').then((result) => {
+      console.log(result)
+    })
   }
   catch (err) {
     console.log(err)

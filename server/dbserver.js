@@ -1,10 +1,11 @@
-const { createPool } = require('mysql');
+const mysql = require('mysql');
 require('dotenv').config();
 
-const db = createPool({
+const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: process.env.REACT_APP_MYSQL_PASSWORD
+    password: process.env.REACT_APP_MYSQL_PASSWORD,
+    database: 'sell_stuff'
 })
 
 
