@@ -4,15 +4,15 @@ import UsersContext from '../../context/users/usersContext';
 import Axios from 'axios';
 import { Grid, Button, MenuItem, InputLabel, FormControl, Select } from '@mui/material';
 import './pages.css';
+import { render } from '@testing-library/react';
 
 
-
-
+let itemList = [];
 
 async function getItems() {
   try {
     Axios.get('http://localhost:4141/api/getItems').then((result) => {
-      console.log(result)
+        itemList.push(result)
     })
   }
   catch (err) {
@@ -29,8 +29,8 @@ function InventoryManagement() {
 
 
   useEffect(() => {
-    console.log(loggedIn);
     getItems();
+    console.log(itemList)
     if (loggedIn === false) {
       navigate('/');
     }
@@ -43,17 +43,10 @@ function InventoryManagement() {
       <br />
       <Grid container spacing={3}>
         <Grid item xs={4} className='inventoryItem'>
-          <p2>Item Name:</p2>
-          <br />
-          <p2>Item Cost:</p2>
-          <br />
-          <p2>Item MRSP:</p2>
-          <br />
-          <p2>Quantity in Stock:</p2>
+          {itemList.map(element => (
+            <p3 key={element.itemID}>{element.itemName}</p3>
+          ))}
         </Grid>
-
-
-
       </Grid>
 
       <Button variant='contained' component='a' href='/ordering'>Order More Inventory</Button>

@@ -31,7 +31,6 @@ const Header = (props) => {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
-        console.log(loggedIn)
 
         setAnchorEl(event.currentTarget);
     };

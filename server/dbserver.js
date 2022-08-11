@@ -1,10 +1,10 @@
 const mysql = require('mysql');
-require('dotenv').config();
+require('dotenv').config({path:'../.env'});
 
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: process.env.REACT_APP_MYSQL_PASSWORD,
+    password: process.env.MYSQL_PASSWORD,
     database: 'sell_stuff'
 })
 
