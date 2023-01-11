@@ -6,6 +6,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import UsersContext from '../../context/users/usersContext';
 
 
+
 // theme for MaterializeUI
 const theme = createTheme({
     palette: {
@@ -45,6 +46,12 @@ const Header = (props) => {
         e.preventDefault();
         logOut();
     }
+
+    
+    
+      
+
+    //Routing and DB pulls from Header Menu
     const routeHome = () => {
         navigate('/')
     }
@@ -66,6 +73,8 @@ const Header = (props) => {
     const routeLogIn = () => {
         navigate('/login')
     }
+
+    
 
 
     return (

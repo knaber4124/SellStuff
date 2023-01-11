@@ -3,11 +3,14 @@ import usersContext from './usersContext';
 import usersReducer from './usersReducer';
 import {
     LOG_IN,
-    LOG_OUT
+    LOG_OUT,
+    LOADING_TRUE,
+    LOADING_FALSE
 } from '../types';
 
 const UsersState = props => {
     const initialState = {
+        isLoading: false,
         loggedIn: false,
         user: "Keith"
     }
@@ -23,6 +26,15 @@ const UsersState = props => {
     const logOut = () => {
         dispatch({ type: LOG_OUT })
     }
+    //set Loading to True
+    const loadingTrue = () => {
+        dispatch({ type: LOADING_TRUE })
+    }
+
+    //set Loading to False
+    const loadingFalse=()=>{
+        dispatch({ type: LOADING_FALSE})
+    }
 
 
     return (
@@ -31,7 +43,9 @@ const UsersState = props => {
                 user: state.user,
                 loggedIn: state.loggedIn,
                 logIn,
-                logOut
+                logOut,
+                loadingTrue,
+                loadingFalse
             }}>{props.children}
         </usersContext.Provider>
     )

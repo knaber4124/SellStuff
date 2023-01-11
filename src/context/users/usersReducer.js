@@ -1,6 +1,8 @@
 import {
     LOG_IN,
-    LOG_OUT
+    LOG_OUT,
+    LOADING_TRUE,
+    LOADING_FALSE
 } from '../types';
 
 export default (state, action) => {
@@ -14,6 +16,16 @@ export default (state, action) => {
             return {
                 ...state,
                 loggedIn: false
+            }
+        case LOADING_TRUE:
+            return {
+                ...state,
+                isLoading: true
+            }
+        case LOADING_FALSE:
+            return {
+                ...state,
+                isLoading: false
             }
         default:
             return state;
